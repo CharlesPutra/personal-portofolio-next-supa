@@ -1,0 +1,68 @@
+"use client"
+
+import { Github, Linkedin, Instagram } from "lucide-react"
+
+export default function Footer() {
+    const currentYear = new Date().getFullYear()
+
+    return (
+        <footer className="relative overflow-hidden mt-20">
+            {/* Garis gradien neon di atas */}
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x"></div>
+
+            <div className="bg-[#0f172a] text-gray-300 py-12 px-6 md:px-20">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                    {/* Brand */}
+                    <div className="text-center md:text-left">
+                        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+                            CharlesPutra<span className="text-white">Dev</span>
+                        </h2>
+                        <p className="text-sm text-gray-400 mt-2">
+                            Crafting modern web experiences with Next.js & Supabase 🚀
+                        </p>
+                    </div>
+
+                    {/* Social Icons */}
+                    <div className="flex items-center gap-6">
+                        <SocialIcon
+                            href="https://github.com/yourusername"
+                            icon={<Github className="w-5 h-5" />}
+                        />
+                        {/* <SocialIcon
+                            href="https://linkedin.com/in/yourusername"
+                            icon={<Linkedin className="w-5 h-5" />}
+                        /> */}
+                        <SocialIcon
+                            href="https://instagram.com/yourusername"
+                            icon={<Instagram className="w-5 h-5" />}
+                        />
+                    </div>
+
+                    {/* Copyright */}
+                    <div className="text-sm text-gray-500 text-center md:text-right">
+                        © {currentYear} <span className="text-gray-300">CharlesPutraDev</span>. All rights reserved.
+                    </div>
+                </div>
+            </div>
+
+            {/* Glow efek di bawah */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-blue-500/20 blur-3xl rounded-full"></div>
+        </footer>
+    )
+}
+
+function SocialIcon({ href, icon }: { href: string; icon: React.ReactNode }) {
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative"
+        >
+            <span className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 blur-lg transition duration-500 rounded-full"></span>
+            <span className="relative text-gray-400 group-hover:text-white transition duration-300">
+                {icon}
+            </span>
+        </a>
+    )
+}
